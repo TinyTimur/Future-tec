@@ -60,3 +60,34 @@
         
     }
 }
+
+.circle-icon {
+    position: relative;
+    --circleSize: #{rem(50)};
+    --circleMarginLeft: #{rem(20)};
+    padding-right: calc(var(--circleSize) + var(--circleMarginLeft));
+    min-height: var(--circleSize);
+
+    @include laptop {
+        --circleSize: #{rem(44)};
+        --circleMarginLeft: #{rem(14)};
+    }
+
+    @include mobile {
+        --circleSize: #{rem(40)};
+    }
+
+    &::after {
+            @include square(var(--circleSize));
+
+            @include abs-y;
+
+            content: '';
+
+            right: 0;
+
+            background: url('../../icons/arrowTopRightBlack.svg') center no-repeat 
+            var(--color-accent);
+            border-radius: 50%;
+        }
+}
